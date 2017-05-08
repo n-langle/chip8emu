@@ -62,12 +62,14 @@
 			// keyboard event
 			document.addEventListener('keydown', function(e){
 				var i = keysCode.indexOf(e.which); 
-				if(i != -1) chip8Emu.chip8.key[i] = 1;	
+				if(i != -1) 
+					chip8Emu.chip8.key[i] = 1;	
 			});
 			
 			document.addEventListener('keyup', function(e){
 				var i = keysCode.indexOf(e.which); 
-				if(i != -1) chip8Emu.chip8.key[i] = 0;	
+				if(i != -1) 
+					chip8Emu.chip8.key[i] = 0;	
 			});
 		},
 		
