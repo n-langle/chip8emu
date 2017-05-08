@@ -3,8 +3,8 @@
  *	CHIP-8 : http://www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/
  *
  * ////////////////////////////////////////////////// */
-(function(Chip8Emu, undefined)
-{
+(function(Chip8Emu, undefined){
+	
 	'use strict';
 	/* ---------------------------------
 	 * static var
@@ -31,8 +31,8 @@
 	/* ---------------------------------
 	 * Chip 8
 	 * ------------------------------ */
-	function Chip8()
-	{ 
+	function Chip8(){
+		
 		var chip8 = this;
 		
 		// unsigned char memory
@@ -84,8 +84,8 @@
 	Chip8.prototype = {
 		constructor : Chip8,
 		
-		initialize : function()
-		{
+		initialize : function(){
+			
 			var chip8 = this,
 				i;
 				
@@ -106,20 +106,19 @@
 			chip8.sound_timer = 0;	
 		},
 		
-		loadGame : function(uint8Array)
-		{
+		loadGame : function(uint8Array){
+			
 			var chip8 = this,
 				i;
 				
-			for(i = 0; i < uint8Array.length; i++)
-			{
+			for(i = 0; i < uint8Array.length; i++){
 				chip8.memory[0x200 + i] = uint8Array[i]; 	
 			}
 		},
 		
 		
-		emulateCycle : function()
-		{
+		emulateCycle : function(){
+			
 			var chip8 	= this,
 				opcode	= chip8.memory[chip8.pc] << 8 | chip8.memory[chip8.pc + 1],
 				X		= (opcode & 0x0F00) >> 8,
@@ -130,8 +129,7 @@
 			{
 				// 0x0
 				case 0x0000 :
-					switch(opcode)
-					{
+					switch(opcode){
 						// 0x00E0	clear the screen
 						case 0x00E0 : 
 							fillArray(chip8.gfx, 0);
@@ -191,8 +189,7 @@
 					break;
 				// 0x8	
 				case 0x8000 :
-					switch(opcode & 0x000F)
-					{
+					switch(opcode & 0x000F){
 						// 0x8XY0	Sets VX to the value of VY
 						case 0x0000 :
 							chip8.V[X] = chip8.V[Y];
@@ -301,8 +298,7 @@
 					break;
 				// 0xE	
 				case 0xE000 : 
-					switch(opcode & 0x00FF)
-					{
+					switch(opcode & 0x00FF){
 						// 0xEX9E 	Skips the next instruction if the key stored in VX is pressed
 						case 0x009E:
 							if(chip8.key[chip8.V[X]] != 0)
@@ -323,8 +319,7 @@
 					break;
 				// 0x	
 				case 0xF000 :			
-					switch(opcode & 0x00FF)
-					{
+					switch(opcode & 0x00FF){
 						// 0xFX07 	Sets VX to the value of the delay timer.
 						case 0x0007 :
 							chip8.V[X] = chip8.delay_timer;
@@ -411,15 +406,13 @@
 			if(chip8.delay_timer > 0)
 				chip8.delay_timer--;
 			
-			if(chip8.sound_timer > 0)
-			{
+			if(chip8.sound_timer > 0){
 				chip8.delay_timer--;
 				if(chip8.delay_timer == 0) console.log("[Chip8Emu.Chip8] BEEP")	
 			}
 		},
 		
-		setKeys : function()
-		{
+		setKeys : function(){
 			
 		}
 	};
@@ -431,8 +424,7 @@
 	// I value doesn't change after the execution of this instruction. 
 	// VF is set to 1 if any screen pixels are flipped from set to unset when the sprite is drawn, 
 	// and to 0 if that doesn't happen 
-	function helper_dxyn(chip8, opcode, X, Y)
-	{
+	function helper_dxyn(chip8, opcode, X, Y){
 
 		var height = opcode & 0x000F,
 			x, y, x2, y2, spr, i;
@@ -462,8 +454,8 @@
 	/* ---------------------------------
 	 * function
 	 * ------------------------------ */
-	function fillArray(array, value)
-	{
+	function fillArray(array, value){
+		
 		var i = 0,
 			v = value || 0;
 			
