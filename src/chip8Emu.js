@@ -82,8 +82,7 @@
 				for(i = 0; i < 10; i++)
 					chip8.emulateCycle();
 				
-				if(chip8.drawFlag)
-				{
+				if(chip8.drawFlag){
 					renderer.drawGraphics(chip8.gfx);
 					chip8.drawFlag = false;
 				}
