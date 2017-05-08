@@ -45,9 +45,8 @@
 			context.fillStyle = "#fff";
 			
 			for(i=0; i<gfx.length; i++)
-				if(gfx[i]){ 
-					context.fillRect((i % CHIP8_ORIGINAL_WIDTH) * zoom, Math.floor(i / CHIP8_ORIGINAL_WIDTH) * zoom, 1 * zoom, 1 * zoom);	
-				}
+				if(gfx[i])
+					context.fillRect((i % CHIP8_ORIGINAL_WIDTH) * zoom, Math.floor(i / CHIP8_ORIGINAL_WIDTH) * zoom, 1 * zoom, 1 * zoom);
 		}
 	};
 	
