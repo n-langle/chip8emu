@@ -1,8 +1,8 @@
 /* =============================================
  * chip8Emu 
  * ========================================== */
-(function(undefined)
-{
+(function(undefined){
+	
 	'use strict';
 	
 	// 	keysCode = 	1, 2, 3, 4, 
@@ -14,8 +14,8 @@
 					81, 83, 68, 70, 
 					87, 88, 67, 86];
 	
-	function Chip8Emu(options)
-	{
+	function Chip8Emu(options){
+		
 		var chip8Emu = this;
 		
 		options = options || {};
@@ -30,8 +30,8 @@
 	 * init
 	 * ------------------------------------------ */
 	Chip8Emu.prototype = { 
-		init : function()
-		{
+		init : function(){
+			
 			var chip8Emu 	= this,
 				container 	= document.getElementById(chip8Emu.idContainer),
 				file		= document.getElementById(chip8Emu.idFile);
@@ -70,8 +70,8 @@
 			});
 		},
 		
-		run : function()
-		{
+		run : function(){
+			
 			var chip8Emu 	= this,
 				chip8 		= chip8Emu.chip8,
 				renderer 	= chip8Emu.renderer,
