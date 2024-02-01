@@ -1,6 +1,6 @@
 /* /////////////////////////////////////////////////////
  *
- *	CHIP-8 : http://www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/
+ *	CHIP-8 : https://multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/
  *
  * ////////////////////////////////////////////////// */
 (function(Chip8Emu, undefined){
